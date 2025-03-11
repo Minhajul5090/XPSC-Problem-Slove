@@ -3,7 +3,7 @@
 #define ll long long
 using namespace std;
 const  int N=1e5+9;
-int a[N],at[4*N];
+ll a[N],at[4*N];
 
 void build(int n,int b,int e){
     if(b==e){
@@ -24,7 +24,7 @@ void update(int n,int b,int e,int i,int v){
     update(r,mid+1,e,i,v);
     at[n]=at[l]+at[r];
 }
-int query(int n,int b,int e,int i,int j){
+ll query(int n,int b,int e,int i,int j){
     if(e<i ||j<b) return 0;
     if(b>=i && e<=j)return at[n];
     int mid=(b+e)/2,l=(n*2),r=(2*n)+1;
@@ -48,7 +48,7 @@ int main()
             else{
                 int l,r;   cin>>l>>r;
                 l++;
-                int ans=query(1,1,n,l,r);
+                ll ans=query(1,1,n,l,r);
                 cout<<ans<<"\n";
             }
         }
